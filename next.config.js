@@ -1,0 +1,15 @@
+const { withFaust } = require('@faustjs/next');
+const WP_HOST = new URL(process.env.NEXT_PUBLIC_WORDPRESS_URL).hostname;
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  sassOptions: {
+    "includePaths": [ "node_modules" ]
+  },
+  images: {
+    domains: [WP_HOST]
+  }
+}
+
+module.exports = withFaust(nextConfig);
